@@ -3,7 +3,7 @@
 This is very simple Dockerfile and related files for [ngx_mruby](https://github.com/matsumoto-r/ngx_mruby).
 
 ## matsumotory/ngx-mruby image on Docker Hub
-`matsumotory/ngx-mruby` image on Docker Hub is [a official ngx_mruby docker image](https://registry.hub.docker.com/u/matsumotory/ngx-mruby/). The image supports `ONBUILD` for below commands.
+`matsumotory/ngx-mruby` image on Docker Hub is [a official ngx_mruby docker image](https://registry.hub.docker.com/u/matsumotory/ngx-mruby/). This image supports `ONBUILD` for below commands.
 
 ```
 ONBUILD ADD docker/hook /usr/local/nginx/hook
@@ -11,7 +11,17 @@ ONBUILD ADD docker/conf /usr/local/nginx/conf
 ONBUILD ADD docker/conf/nginx.conf /usr/local/nginx/conf/nginx.conf
 ```
 
-So, you can create `docker/` directory which was included nginx config files(`docker/conf/`) and ngx_mruby hook scripts(`docker/hook/`) into the same directory as Dockerfile before building Dockerfile.
+So, you can create `docker/` directory which include the nginx config files (`docker/conf/`) and ngx_mruby hook scripts (`docker/hook/`) into the same directory as Dockerfile before building Dockerfile.
+
+### nginx version and modules on matsumotory/ngx-mruby image
+We built nginx with ngx_mruby linked with commonly-used some nginx modules.
+```
+$ sudo docker run -p 80:80 matsumotory/ngx-mruby /usr/local/nginx/sbin/nginx -V
+nginx version: nginx/1.7.7
+built by gcc 4.8.2 (Ubuntu 4.8.2-19ubuntu1) 
+TLS SNI support enabled
+configure arguments: --add-module=/usr/local/src/ngx_mruby --add-module=/usr/local/src/ngx_mruby/dependence/ngx_devel_kit --with-http_stub_status_module --with-http_ssl_module --prefix=/usr/local/nginx --with-http_realip_module --with-http_addition_module --with-http_sub_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_random_index_module --with-http_secure_link_module
+```
 
 ## Simple Example
 ### prepare nginx config and ngx_mruby hook files
