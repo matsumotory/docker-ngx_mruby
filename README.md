@@ -21,7 +21,7 @@ FROM matsumotory/ngx-mruby:latest
 MAINTAINER matsumotory
 ```
 - `current_dir/docker/conf/nginx.conf`
-```
+```nginx
 user daemon;
 daemon off;
 master_process off;
@@ -47,11 +47,11 @@ http {
 }
 ```
 - `current_dir/docker/hook/test.rb`
-```
+```ruby
 Nginx.echo "This is test for ngx_mruby"
 ```
 ### build and run
-```
+```bash
 cd current_dir/
 sudo docker build -t local/docker-ngx_mruby .
 sudo docker run -p 80:80 -t local/docker-ngx_mruby
