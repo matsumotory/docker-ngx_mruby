@@ -13,7 +13,7 @@ ONBUILD ADD docker/conf/nginx.conf /usr/local/nginx/conf/nginx.conf
 
 So, you can create `docker/` directory which include the nginx config files (`docker/conf/`) and ngx_mruby hook scripts (`docker/hook/`) into the same directory as Dockerfile before building Dockerfile.
 
-### nginx version and modules
+### build nginx version and include nginx modules on matsumotory/ngx-mruby image
 We built nginx with ngx_mruby linked with commonly-used some nginx modules.
 ```
 $ sudo docker run -p 80:80 matsumotory/ngx-mruby /usr/local/nginx/sbin/nginx -V
