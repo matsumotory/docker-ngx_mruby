@@ -29,12 +29,12 @@ worker_processes 1;
 error_log stderr;
 
 events {
-    worker_connections  1024;
+    worker_connections 1024;
 }
 
 http {
     server {
-        listen       80;
+        listen 80;
 
         location /mruby-hello {
             mruby_content_handler_code 'Nginx.echo "server ip: #{Nginx::Connection.new.local_ip}: hello ngx_mruby world."';
