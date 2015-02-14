@@ -65,3 +65,9 @@ This is test for ngx_mruby
 ```
 
 ### enjoy!!!
+
+# License
+under [the MIT License](/MITL):
+
+* http://www.opensource.org/licenses/mit-license.php
+
