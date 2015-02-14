@@ -18,7 +18,7 @@ We built nginx with ngx_mruby linked with commonly-used some nginx modules.
 ```
 $ sudo docker run -p 80:80 matsumotory/ngx-mruby /usr/local/nginx/sbin/nginx -V
 nginx version: nginx/1.7.7
-built by gcc 4.8.2 (Ubuntu 4.8.2-19ubuntu1) 
+built by gcc 4.8.2 (Ubuntu 4.8.2-19ubuntu1)
 TLS SNI support enabled
 configure arguments: --add-module=/usr/local/src/ngx_mruby --add-module=/usr/local/src/ngx_mruby/dependence/ngx_devel_kit --with-http_stub_status_module --with-http_ssl_module --prefix=/usr/local/nginx --with-http_realip_module --with-http_addition_module --with-http_sub_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_random_index_module --with-http_secure_link_module
 ```
@@ -52,6 +52,12 @@ http {
 
         location /mruby-test {
             mruby_content_handler /usr/local/nginx/hook/test.rb;
+        }
+
+        location / {
+            resolver 8.8.8.8;
+            mruby_set_code $backend '["blog.matsumoto-r.jp", "hb.matsumoto-r.jp"][rand(2)]';
+            proxy_pass http://$backend;
         }
     }
 }
