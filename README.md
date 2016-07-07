@@ -2,6 +2,8 @@
 
 This is very simple Dockerfile and related files for [ngx_mruby](https://github.com/matsumoto-r/ngx_mruby).
 
+Connecting to https://hub.docker.com/r/matsumotory/docker-ngx_mruby/.
+
 ## matsumotory/ngx-mruby image on Docker Hub
 `matsumotory/ngx-mruby` image on Docker Hub is [an official ngx_mruby docker image](https://registry.hub.docker.com/u/matsumotory/ngx-mruby/). This image supports `ONBUILD` for below commands.
 
