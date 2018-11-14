@@ -1,4 +1,4 @@
-FROM matsumotory/ngx-mruby:latest
+FROM matsumotory/ngx_mruby:master
 MAINTAINER matsumotory
 
 #
