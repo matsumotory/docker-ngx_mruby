@@ -29,7 +29,7 @@ configure arguments: --add-module=/usr/local/src/ngx_mruby --add-module=/usr/loc
 ### prepare nginx config and ngx_mruby hook files
 - `current_dir/Dockerfile`
 ```
-FROM matsumotory/ngx-mruby:latest
+FROM matsumotory/ngx_mruby:master
 MAINTAINER matsumotory
 ```
 - `current_dir/docker/conf/nginx.conf`
